@@ -27,6 +27,11 @@ public class UserService {
             }
         }
         return null;
+    }
 
+    public User createUser(String name, int age){
+        User user = new User(users.size() + 1, name, age);
+        users.add(user);
+        return user;
     }
 }
