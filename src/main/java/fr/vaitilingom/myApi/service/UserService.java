@@ -45,7 +45,15 @@ public class UserService {
             }
          }
         return null;
+    }
 
-
+    public User deleteUser(int id){
+        for(User user: users){
+             if (user.getId() == id) {
+                int index = users.indexOf(user);
+                return users.remove(index);
+             }
+        }
+        return null;
     }
 }
