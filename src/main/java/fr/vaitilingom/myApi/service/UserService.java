@@ -30,8 +30,8 @@ public class UserService {
     }
 
     public User createUser(String name, int age){
-        User user = new User(users.size() + 1, name, age);
-        users.add(user);
+        User user = new User(this.users.size() + 1, name, age);
+        this.users.add(user);
         return user;
     }
 
@@ -48,10 +48,10 @@ public class UserService {
     }
 
     public User deleteUser(int id){
-        for(User user: users){
+        for(User user: this.users){
              if (user.getId() == id) {
-                int index = users.indexOf(user);
-                return users.remove(index);
+                int index = this.users.indexOf(user);
+                return this.users.remove(index);
              }
         }
         return null;
