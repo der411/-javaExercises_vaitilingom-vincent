@@ -11,24 +11,21 @@ public class AnimalRequest {
         this.name = name;
         this.type = type;
         this.weight = weight;
+	}
 
-	public = getName() {
+	public String getName() {
 		return this.name;
 	}
 
 
-	public = getType() {
+	public String getType() {
 		return this.type;
 	}
 
 
-	public = getWeight() {
+	public int getWeight() {
 		return this.weight;
 	}
 
+ }
 
-    }
-
-
-    
-}
