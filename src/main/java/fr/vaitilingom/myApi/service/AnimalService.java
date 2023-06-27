@@ -61,4 +61,7 @@ public class AnimalService {
         return null;
     }
     
+    public ArrayList <Animal> getAnimals(){
+        return this.animals;
+    }
 }

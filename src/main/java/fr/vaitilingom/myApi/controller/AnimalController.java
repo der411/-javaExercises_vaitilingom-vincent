@@ -1,9 +1,11 @@
 package fr.vaitilingom.myApi.controller;
 
 import java.net.URI;
+import java.util.ArrayList;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +30,7 @@ import fr.vaitilingom.myApi.service.AnimalService;
         this.animalService = animalService;
     }
     
-    
+    @CrossOrigin
     @GetMapping("/animal")
     
     public ResponseEntity<?> getAnimal(@RequestParam int id) {
@@ -81,7 +83,21 @@ import fr.vaitilingom.myApi.service.AnimalService;
         } else {
             //return ResponseEntity.notFound().build();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Animal non supprimé");
+        }
     }
+
+    @GetMapping("/animals")
+    
+    public ResponseEntity<ArrayList<Animal>> getAnimals() {
+        
+        ArrayList<Animal> animals = animalService.getAnimals();
+
+        if (animals != null) {
+            return ResponseEntity.ok(animals);
+        }
+        return ResponseEntity.notFound().build();
     }
+
+    
 }
 
